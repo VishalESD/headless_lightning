@@ -11,9 +11,9 @@
 
 cd "$(dirname "$0")" || exit; source _includes.sh
 
-CURRENT_RECOMMENDED="~9.0.0"
-CURRENT_DEV="9.0.x-dev"
-NEXT_DEV="9.1.x-dev"
+CURRENT_RECOMMENDED="~9.1.0"
+CURRENT_DEV="9.1.x-dev"
+NEXT_DEV="9.2.x-dev"
 
 case "$ORCA_JOB" in
   "DEPRECATED_CODE_SCAN") orca debug:packages; eval "orca fixture:init -f --sut=$ORCA_SUT_NAME --sut-only --no-site-install" ;;
@@ -25,6 +25,9 @@ case "$ORCA_JOB" in
   "CORE_NEXT") orca debug:packages "$NEXT_DEV"; eval "orca fixture:init -f --sut=$ORCA_SUT_NAME --core=$NEXT_DEV --dev --profile=$ORCA_FIXTURE_PROFILE --project-template=$ORCA_FIXTURE_PROJECT_TEMPLATE" ;;
 esac
 
+if [ -d "$ORCA_FIXTURE_DIR" ]; then
+  composer -d $ORCA_FIXTURE_DIR require phpspec/prophecy-phpunit:^2
+fi
 
 # Upgrade test special case:
 

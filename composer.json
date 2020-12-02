@@ -4,15 +4,14 @@
     "description": "Drupal Lightning as a backend for fully decoupled applications.",
     "license": "GPL-2.0-or-later",
     "require": {
-        "acquia/lightning": "~5.0.0",
+        "acquia/lightning": "~5.1.0",
         "cweagans/composer-patches": "^1.6.4"
     },
     "require-dev": {
-        "drupal/core-composer-scaffold": "*",
-        "drupal/core-dev": "*",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-dev": "^9",
         "drush/drush": ">=9.7",
-        "oomphinc/composer-installers-extender": "^1.1",
-        "zaporylie/composer-drupal-optimizations": "^1.1"
+        "oomphinc/composer-installers-extender": "^1.1 || ^2"
     },
     "config": {
         "preferred-install": {
