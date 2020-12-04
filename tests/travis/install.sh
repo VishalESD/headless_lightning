@@ -17,13 +17,13 @@ source ../../../orca/bin/travis/_includes.sh
 # When testing the SUT in isolation using dev package versions, treat the
 # components as part of the SUT, to be installed in an isolated (SUT-only)
 # fixture.
-if [[ "$ORCA_JOB" == "ISOLATED_DEV" ]]; then
-  export ORCA_PACKAGES_CONFIG=../headless_lightning/tests/packages.yml
-  orca fixture:init -f --sut="$ORCA_SUT_NAME" --dev --profile=headless_lightning
-else
+#if [[ "$ORCA_JOB" == "ISOLATED_DEV" ]]; then
+#  export ORCA_PACKAGES_CONFIG=../headless_lightning/tests/packages.yml
+#  orca fixture:init -f --sut="$ORCA_SUT_NAME" --dev --profile=headless_lightning
+#else
   # Run ORCA's standard installation script.
   ../../../orca/bin/travis/install.sh
-fi
+#fi
 
 # If there is no fixture, there's nothing else for us to do.
 [[ -d "$ORCA_FIXTURE_DIR" ]] || exit 0
