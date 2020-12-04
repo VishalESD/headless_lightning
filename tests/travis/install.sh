@@ -9,7 +9,10 @@
 # DESCRIPTION
 #     Creates the test fixture and places the SUT.
 
-cd "$(dirname "$0")" || exit; source _includes.sh
+cd "$(dirname "$0")"
+
+# Reuse ORCA's own includes.
+source ../../../orca/bin/travis/_includes.sh
 
 CURRENT_RECOMMENDED="~9.1.0"
 CURRENT_DEV="9.1.x-dev"
