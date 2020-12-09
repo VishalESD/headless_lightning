@@ -34,6 +34,7 @@ class UpdatePathTest extends UpdatePathTestBase {
     $display['display_options']['fields']['media_bulk_form']['plugin_id'] = 'bulk_form';
     $view->save();
 
+    $this->container->get('extension.list.module')->reset();
     $this->runUpdates();
     $this->drush('update:lightning', [], ['yes' => NULL]);
   }
